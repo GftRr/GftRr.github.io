@@ -1,64 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Islam Portfolio</title>
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-            background: #0f172a;
-            color: white;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Islam Hany | Portfolio</title>
+<style>
+/* ===================== GLOBAL ===================== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        .container {
-            padding: 60px;
-        }
+body{
+background:#0b1220;
+color:#e5e7eb;
+overflow-x:hidden;
+}
 
-        h1 {
-            font-size: 50px;
-            color: #38bdf8;
-        }
+a{
+color:inherit;
+text-decoration:none;
+}
 
-        p {
-            font-size: 20px;
-            color: #cbd5e1;
-        }
+/* ===================== NAVBAR ===================== */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+position:fixed;
+top:0;
+width:100%;
+background:rgba(10,15,30,0.8);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
 
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            margin: 20px auto;
-            width: 60%;
-            border-radius: 15px;
-        }
+nav h1{
+font-size:20px;
+color:#38bdf8;
+}
 
-        a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-    </style>
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+nav ul li:hover{
+color:#38bdf8;
+cursor:pointer;
+}
+
+/* ===================== HERO ===================== */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+}
+
+.hero h2{
+font-size:50px;
+color:#38bdf8;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+color:#9ca3af;
+max-width:600px;
+}
+
+.btn{
+margin-top:20px;
+padding:10px 20px;
+border:1px solid #38bdf8;
+border-radius:8px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#38bdf8;
+color:#0b1220;
+}
+
+/* ===================== SECTIONS ===================== */
+section{
+padding:80px 60px;
+}
+
+.section-title{
+font-size:30px;
+margin-bottom:30px;
+color:#38bdf8;
+}
+
+/* ===================== SKILLS ===================== */
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.skill{
+padding:10px 15px;
+background:#111827;
+border:1px solid #1f2937;
+border-radius:10px;
+}
+
+/* ===================== PROJECTS ===================== */
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#111827;
+padding:20px;
+border-radius:12px;
+transition:0.3s;
+border:1px solid #1f2937;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:#38bdf8;
+}
+
+/* ===================== CONTACT ===================== */
+.contact{
+text-align:center;
+}
+
+.contact a{
+display:block;
+margin:10px;
+color:#38bdf8;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#6b7280;
+}
+
+</style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Hi, I'm Islam 👋</h1>
-    <p>High School Student | Python & ML Learner | Future AI Engineer</p>
+<nav>
+<h1>Islam Hany</h1>
+<ul>
+<li>Home</li>
+<li>Skills</li>
+<li>Projects</li>
+<li>Contact</li>
+</ul>
+</nav>
 
-    <div class="card">
-        <h2>🚀 Projects</h2>
-        <p>• To-Do App (Python)</p>
-        <p>• Mini Machine Learning Models</p>
-        <p>• C++ Problem Solving</p>
-    </div>
-
-    <div class="card">
-        <h2>📫 Contact</h2>
-        <p>GitHub: <a href="#">your link</a></p>
-        <p>Email: your email</p>
-    </div>
+<div class="hero">
+<h2>Islam Hany</h2>
+<p>Competitive Programming (C++) Enthusiast | High School Developer | Future Machine Learning Engineer</p>
+<a class="btn" href="#projects">View Projects</a>
 </div>
+
+<section>
+<h2 class="section-title">About Me</h2>
+<p>
+I am Islam Hany, a passionate developer focused on competitive programming, C++, Python, Machine Learning, and cybersecurity.
+I love solving complex algorithmic problems and building real-world projects.
+</p>
+</section>
+
+<section>
+<h2 class="section-title">Skills</h2>
+<div class="skills">
+<div class="skill">C++ (Advanced Problem Solving)</div>
+<div class="skill">Python</div>
+<div class="skill">Machine Learning</div>
+<div class="skill">Data Structures & Algorithms</div>
+<div class="skill">Competitive Programming</div>
+<div class="skill">Git & GitHub</div>
+<div class="skill">Cybersecurity Basics</div>
+<div class="skill">HTML / CSS</div>
+</div>
+</section>
+
+<section id="projects">
+<h2 class="section-title">Projects (14+ GitHub Repos)</h2>
+<div class="projects">
+<div class="card">
+<h3>My Projects Collection</h3>
+<p>14+ advanced projects including algorithms, ML models, and C++ solutions.</p>
+<a href="https://github.com/GftRr/MyProjects">View Repo</a>
+</div>
+<div class="card">
+<h3>GitHub Profile</h3>
+<p>Main repository and development activity.</p>
+<a href="https://github.com/GftRr">Visit GitHub</a>
+</div>
+</div>
+</section>
+
+<section class="contact">
+<h2 class="section-title">Contact</h2>
+<a href="mailto:eslamsalh.me@gmail.com">eslamsalh.me@gmail.com</a>
+<a href="https://github.com/GftRr">GitHub Profile</a>
+</section>
+
+<footer>
+<p>© 2026 Islam Hany. Built with passion 💻</p>
+</footer>
 
 </body>
 </html>
