@@ -5,9 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta name="description" content="Islam Hany — 17-year-old Competitive Programmer, C++ Developer, Cybersecurity enthusiast from Egypt.">
 <meta name="theme-color" content="#060910">
-<title>Islam Hany · Portfolio</title>
+
+<!-- Performance hints -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://codeforces.com">
+<link rel="dns-prefetch" href="https://github.com">
+
+<!-- Open Graph / Social preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Islam Hany · Developer & Competitive Programmer">
+<meta property="og:description" content="17-year-old competitive programmer, C++ developer, and cybersecurity enthusiast from Egypt. Solving problems, one algorithm at a time.">
+<meta property="og:image" content="https://og-image-placeholder.vercel.app/Islam%20Hany.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Islam Hany · Developer & Competitive Programmer">
+<meta name="twitter:description" content="17-year-old competitive programmer, C++ developer, and cybersecurity enthusiast from Egypt.">
+
+<title>Islam Hany · Portfolio</title>
+
+<!-- Favicon (inline SVG as data URI) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23060910'/><text y='.9em' x='10' font-size='72' fill='%2363caff'>I</text></svg>">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap">
 <style>
 /* ════ TOKENS ════ */
 :root{
@@ -26,11 +45,15 @@
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;padding-top:var(--nav);}
 a{text-decoration:none;color:inherit;}
-button{font-family:var(--body);border:none;background:none;color:inherit;}
+button{font-family:var(--body);border:none;background:none;color:inherit;cursor:pointer;}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--c2);border-radius:99px;}
 ::selection{background:rgba(99,202,255,.2);color:var(--c1);}
+::placeholder{opacity:.7;color:var(--muted2);}
+
+/* Respect motion preferences */
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}}
 
 /* custom cursor — desktop only */
 @media(pointer:fine){body{cursor:none;}}
@@ -56,16 +79,19 @@ nav{
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
   border-bottom:1px solid var(--border);
 }
-.logo{font-family:var(--mono);font-size:13px;color:var(--c1);letter-spacing:.12em;display:flex;align-items:center;gap:8px;}
+.logo{font-family:var(--mono);font-size:13px;color:var(--c1);letter-spacing:.12em;display:flex;align-items:center;gap:8px;cursor:pointer;transition:color .2s;}
+.logo:focus-visible{outline:2px solid var(--c1);outline-offset:2px;border-radius:4px;}
 .logo-dot{width:6px;height:6px;border-radius:50%;background:var(--c1);box-shadow:0 0 8px var(--c1);animation:blink 2s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
 .nav-links{display:flex;gap:2px;list-style:none;}
-.nav-links a{font-size:12.5px;font-weight:500;color:var(--muted);letter-spacing:.04em;padding:6px 12px;border-radius:8px;transition:color .2s;position:relative;}
+.nav-links a{font-size:12.5px;font-weight:500;color:var(--muted);letter-spacing:.04em;padding:6px 12px;border-radius:8px;transition:color .2s,background .2s;position:relative;}
+.nav-links a:focus-visible{outline:2px solid var(--c1);outline-offset:2px;}
 .nav-links a::after{content:'';position:absolute;bottom:3px;left:50%;width:0;height:1px;background:var(--c1);transition:width .25s var(--ease),left .25s var(--ease);}
-.nav-links a:hover{color:var(--c1);}
+.nav-links a:hover{color:var(--c1);background:rgba(99,202,255,.05);}
 .nav-links a:hover::after,.nav-links a.active::after{width:55%;left:22.5%;}
 .nav-links a.active{color:var(--c1);}
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border-radius:8px;}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border-radius:8px;transition:background .2s;}
+.ham:focus-visible{outline:2px solid var(--c1);outline-offset:2px;}
 .ham span{display:block;width:20px;height:1.5px;background:var(--muted);border-radius:2px;transition:transform .3s,opacity .3s;}
 .ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
 .ham.open span:nth-child(2){opacity:0;}
@@ -74,6 +100,7 @@ nav{
 .mob-menu.open{opacity:1;transform:translateY(0);pointer-events:all;}
 .mob-menu a{display:block;padding:13px 0;font-size:15px;color:var(--muted);border-bottom:1px solid var(--border);transition:color .2s,padding-left .2s;}
 .mob-menu a:last-child{border-bottom:none;}
+.mob-menu a:focus-visible{outline:2px solid var(--c1);outline-offset:2px;}
 .mob-menu a:hover{color:var(--c1);padding-left:8px;}
 
 /* ════ HERO ════ */
@@ -92,13 +119,16 @@ nav{
 .cursor-blink{display:inline-block;width:2px;height:.9em;background:var(--c1);margin-left:3px;vertical-align:text-bottom;animation:blink .9s step-end infinite;}
 .hero-btns{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeUp .7s .25s var(--ease) both;}
 .btn-p{padding:13px 30px;background:linear-gradient(135deg,var(--c2),var(--c3));border:none;border-radius:12px;color:#fff;font-family:var(--body);font-size:14px;font-weight:600;letter-spacing:.03em;cursor:pointer;box-shadow:0 0 32px rgba(59,130,246,.28);transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-p:focus-visible{outline:2px solid #fff;outline-offset:2px;}
 .btn-p:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(59,130,246,.45);}
 .btn-o{padding:13px 30px;background:transparent;border:1px solid var(--border);border-radius:12px;color:var(--text);font-family:var(--body);font-size:14px;font-weight:500;cursor:pointer;transition:border-color .2s,background .2s,transform .2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-o:focus-visible{outline:2px solid var(--c1);outline-offset:2px;}
 .btn-o:hover{border-color:var(--borderH);background:rgba(99,202,255,.04);transform:translateY(-3px);}
 .hero-platforms{margin-top:46px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;animation:fadeUp .7s .33s var(--ease) both;}
 .hero-platforms>span{font-family:var(--mono);font-size:10px;color:var(--muted2);letter-spacing:.12em;}
-.pp{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:99px;padding:6px 15px;font-size:12px;font-weight:500;color:var(--muted);transition:border-color .2s,color .2s,transform .2s;cursor:pointer;}
-.pp:hover{border-color:var(--borderH);color:var(--c1);transform:translateY(-2px);}
+.pp{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:99px;padding:6px 15px;font-size:12px;font-weight:500;color:var(--muted);transition:border-color .2s,color .2s,transform .2s,background .2s;cursor:pointer;}
+.pp:focus-visible{outline:2px solid var(--c1);outline-offset:2px;}
+.pp:hover{border-color:var(--borderH);color:var(--c1);background:rgba(99,202,255,.04);transform:translateY(-2px);}
 .pdot{width:6px;height:6px;border-radius:50%;}
 .cf-c{background:#e05c3a;}.hr-c{background:#00ea64;}.gh-c{background:#7c3aed;}
 
@@ -118,8 +148,10 @@ nav{
 .term-input-row{display:flex;align-items:center;gap:6px;padding-top:8px;border-top:1px solid rgba(99,202,255,.06);}
 .term-prompt{font-family:var(--mono);font-size:12px;color:var(--c1);white-space:nowrap;}
 .term-input{flex:1;background:transparent;border:none;outline:none;font-family:var(--mono);font-size:12px;color:var(--text);caret-color:var(--c1);cursor:text;}
+.term-input:focus{outline:1px solid rgba(99,202,255,.3);border-radius:4px;padding:0 4px;}
 .term-chips{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;}
 .chip{font-family:var(--mono);font-size:10px;padding:3px 10px;border-radius:6px;background:rgba(99,202,255,.06);border:1px solid rgba(99,202,255,.13);color:var(--muted);cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
+.chip:focus-visible{outline:2px solid var(--c1);outline-offset:1px;}
 .chip:hover{background:rgba(99,202,255,.13);color:var(--c1);border-color:rgba(99,202,255,.3);}
 
 /* scroll cue */
@@ -144,11 +176,13 @@ nav{
 .about-body p em{color:var(--c1);font-style:normal;font-family:var(--mono);font-size:13px;}
 .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;}
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 16px;text-align:center;transition:border-color .3s,transform .3s;}
-.stat:hover{border-color:var(--borderH);transform:translateY(-4px);}
+.stat:focus-within{border-color:var(--borderH);}
+.stat:hover{border-color:var(--borderH);}
 .stat-n{font-family:var(--mono);font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
 .stat-l{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.06em;}
 .about-right{display:flex;flex-direction:column;gap:12px;}
 .info-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:14px;transition:border-color .3s,transform .3s;}
+.info-card:focus-within{border-color:var(--borderH);}
 .info-card:hover{border-color:var(--borderH);transform:translateX(4px);}
 .ic-icon{font-size:22px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(99,202,255,.06);border-radius:11px;border:1px solid var(--border);flex-shrink:0;}
 .ic-label{font-family:var(--mono);font-size:9.5px;color:var(--muted2);letter-spacing:.1em;margin-bottom:3px;}
@@ -157,6 +191,7 @@ nav{
 /* ════ SKILLS ════ */
 .skills-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;}
 .sk{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;gap:13px;transition:border-color .3s,transform .3s;position:relative;overflow:hidden;}
+.sk:focus-within{border-color:var(--borderH);}
 .sk:hover{border-color:var(--borderH);transform:translateY(-4px);}
 .sk-ico{font-size:20px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03);border-radius:10px;border:1px solid var(--border);flex-shrink:0;}
 .sk-name{font-size:13px;font-weight:600;color:var(--text);}
@@ -167,11 +202,13 @@ nav{
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
 .pc{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;}
 .pc::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:1px;background:linear-gradient(90deg,transparent,var(--c1),transparent);transition:left .6s var(--ease);}
+.pc:focus-within{border-color:var(--borderH);}
 .pc:hover{border-color:var(--borderH);transform:translateY(-6px);}
 .pc:hover::after{left:120%;}
 .pc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
 .pc-ico{width:46px;height:46px;font-size:21px;display:flex;align-items:center;justify-content:center;background:rgba(99,202,255,.06);border:1px solid var(--border);border-radius:12px;}
-.pc-arrow{font-size:17px;color:var(--muted2);transition:color .2s,transform .2s;}
+.pc-arrow{font-size:17px;color:var(--muted2);transition:color .2s,transform .2s;text-decoration:none;}
+.pc-arrow:focus-visible{outline:2px solid var(--c1);outline-offset:2px;border-radius:4px;}
 .pc:hover .pc-arrow{color:var(--c1);transform:translate(3px,-3px);}
 .pc h3{font-size:15.5px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;}
 .pc p{color:var(--muted);font-size:13px;line-height:1.75;flex:1;margin-bottom:20px;font-weight:300;}
@@ -182,15 +219,18 @@ nav{
 .tg-i{background:rgba(129,140,248,.06);border-color:rgba(129,140,248,.2);color:#c4b5fd;}
 .tg-g{background:rgba(34,197,94,.06);border-color:rgba(34,197,94,.2);color:#86efac;}
 
-/* ════ ACHIEVEMENTS ════ */
-.ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
-.ach{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;}
-.ach.coming::after{content:'COMING SOON';position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9px;color:var(--c1);letter-spacing:.1em;background:rgba(99,202,255,.07);border:1px solid rgba(99,202,255,.15);padding:3px 8px;border-radius:6px;}
-.ach:hover{border-color:var(--borderH);transform:translateY(-4px);}
-.ach-ico{font-size:26px;margin-bottom:12px;}
-.ach h4{font-size:14.5px;font-weight:700;margin-bottom:6px;}
-.ach p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;}
-.amb-banner{margin-top:28px;background:linear-gradient(135deg,rgba(59,130,246,.07),rgba(129,140,248,.07));border:1px solid rgba(99,202,255,.11);border-radius:16px;padding:26px 28px;display:flex;align-items:center;gap:18px;}
+/* ════ GOALS ════ */
+.goals-intro{font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:36px;max-width:680px;}
+.goals-intro strong{color:var(--text);}
+.goals-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:28px;}
+.goal-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;}
+.goal-card:focus-within{border-color:var(--borderH);}
+.goal-card:hover{border-color:var(--borderH);transform:translateY(-4px);}
+.goal-ico{font-size:26px;margin-bottom:12px;}
+.goal-card h4{font-size:14.5px;font-weight:700;margin-bottom:6px;}
+.goal-card p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;}
+.goal-tag{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;color:var(--c1);letter-spacing:.1em;background:rgba(99,202,255,.07);border:1px solid rgba(99,202,255,.15);padding:3px 8px;border-radius:6px;margin-bottom:10px;}
+.amb-banner{background:linear-gradient(135deg,rgba(59,130,246,.07),rgba(129,140,248,.07));border:1px solid rgba(99,202,255,.11);border-radius:16px;padding:26px 28px;display:flex;align-items:center;gap:18px;}
 .amb-ico{font-size:30px;flex-shrink:0;}
 .amb-text h4{font-size:15px;font-weight:700;margin-bottom:6px;}
 .amb-text p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;}
@@ -202,6 +242,7 @@ nav{
 .build-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:32px;}
 .build-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 20px;display:flex;gap:14px;align-items:flex-start;transition:border-color .3s,transform .3s;position:relative;overflow:hidden;}
 .build-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--c2),var(--c1));transform:scaleY(0);transform-origin:top;transition:transform .4s var(--ease);}
+.build-card:focus-within{border-color:var(--borderH);}
 .build-card:hover{border-color:var(--borderH);transform:translateY(-3px);}
 .build-card:hover::before{transform:scaleY(1);}
 .build-ico{font-size:22px;flex-shrink:0;margin-top:2px;}
@@ -211,27 +252,46 @@ nav{
 .build-motto::before{content:'"';position:absolute;top:10px;left:18px;font-size:42px;color:rgba(99,202,255,.12);font-family:Georgia,serif;line-height:1;}
 .build-motto strong{color:var(--c1);font-style:normal;}
 
-/* ════ CERTIFICATIONS ════ */
-.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+/* ════ CERTIFICATIONS & ROADMAP ════ */
+.cert-section-intro{font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:36px;max-width:680px;}
+.cert-section-intro strong{color:var(--text);}
+.cert-earned-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--c4);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.cert-earned-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(34,211,238,.2),transparent);}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:28px;}
 .cert{background:var(--surface);border:1px solid var(--border);border-radius:15px;padding:22px 20px;display:flex;align-items:flex-start;gap:14px;transition:border-color .3s,transform .3s;position:relative;overflow:hidden;}
-.cert.locked{opacity:.55;}
-.cert.locked::after{content:'UPCOMING';position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.1em;background:var(--s2);border:1px solid var(--border);padding:3px 8px;border-radius:5px;}
+.cert.upcoming{opacity:.6;}
+.cert.upcoming::after{content:'UPCOMING';position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.1em;background:var(--s2);border:1px solid var(--border);padding:3px 8px;border-radius:5px;}
+.cert:focus-within{border-color:var(--borderH);}
 .cert:hover{border-color:var(--borderH);transform:translateX(4px);}
 .cert-ico{width:42px;height:42px;font-size:19px;display:flex;align-items:center;justify-content:center;background:rgba(99,202,255,.06);border-radius:11px;border:1px solid var(--border);flex-shrink:0;margin-top:2px;}
 .cert-issuer{font-family:var(--mono);font-size:10px;color:var(--muted2);letter-spacing:.1em;margin-bottom:4px;}
 .cert-name{font-size:14px;font-weight:600;color:var(--text);line-height:1.3;}
 .cert-status{font-size:12px;color:var(--muted);margin-top:5px;font-weight:300;}
+.cert.earned{border-color:rgba(34,211,238,.18);}
+.cert.earned .cert-ico{background:rgba(34,211,238,.08);border-color:rgba(34,211,238,.2);}
+.cert.earned .cert-issuer{color:var(--c4);}
+
+/* roadmap strip */
+.roadmap-strip{margin-top:8px;background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(129,140,248,.06));border:1px solid rgba(99,202,255,.1);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.roadmap-strip span{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;}
+.roadmap-strip strong{color:var(--c1);}
+.road-dots{display:flex;gap:6px;align-items:center;}
+.rd{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.rd.done{background:var(--c4);}
+.rd.active{background:var(--c2);box-shadow:0 0 8px var(--c2);}
+.rd.next{background:var(--muted2);}
 
 /* ════ CONTACT ════ */
 .contact-wrap{max-width:640px;margin:0 auto;text-align:center;}
 .contact-lead{font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:44px;}
 .contact-lead strong{color:var(--text);}
 .contact-cards{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
-.cc{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:16px 22px;transition:border-color .3s,transform .3s;cursor:pointer;min-width:200px;text-align:left;}
-.cc:hover{border-color:var(--borderH);transform:translateY(-4px);}
+.cc{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:16px 22px;transition:border-color .3s,transform .3s,background .3s;cursor:pointer;min-width:200px;text-align:left;}
+.cc:focus-visible{outline:2px solid var(--c1);outline-offset:2px;}
+.cc:hover{border-color:var(--borderH);background:rgba(99,202,255,.04);transform:translateY(-4px);}
 .cc-icon{font-size:19px;}
 .cc small{font-family:var(--mono);font-size:10px;color:var(--muted2);letter-spacing:.1em;display:block;margin-bottom:3px;}
-.cc strong{font-size:13px;color:var(--c1);font-weight:600;}
+.cc strong{font-size:13px;color:var(--c1);}
 
 /* ════ OPEN TO OPPORTUNITIES ════ */
 .opp-wrap{position:relative;z-index:1;padding:0 60px 80px;}
@@ -245,6 +305,7 @@ nav{
 .opp-pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:32px;}
 .opp-pill{font-family:var(--mono);font-size:11px;padding:6px 14px;border-radius:99px;background:rgba(99,202,255,.06);border:1px solid rgba(99,202,255,.15);color:var(--muted);letter-spacing:.05em;}
 .opp-cta{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;background:linear-gradient(135deg,var(--c2),var(--c3));border:none;border-radius:12px;color:#fff;font-family:var(--body);font-size:14px;font-weight:600;letter-spacing:.03em;cursor:pointer;box-shadow:0 0 32px rgba(59,130,246,.28);transition:transform .2s,box-shadow .2s;}
+.opp-cta:focus-visible{outline:2px solid #fff;outline-offset:2px;}
 .opp-cta:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(59,130,246,.45);}
 
 /* ════ MODAL ════ */
@@ -253,23 +314,26 @@ nav{
 .modal-box{background:#0b1525;border:1px solid rgba(99,202,255,.18);border-radius:20px;padding:38px 34px;width:100%;max-width:460px;position:relative;transform:translateY(20px) scale(.97);transition:transform .35s var(--ease);box-shadow:0 0 80px rgba(0,0,0,.7);}
 .modal-overlay.open .modal-box{transform:translateY(0) scale(1);}
 .modal-close{position:absolute;top:16px;right:16px;background:rgba(99,202,255,.07);border:1px solid var(--border);border-radius:8px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--muted);cursor:pointer;transition:background .2s,color .2s;}
+.modal-close:focus-visible{outline:2px solid var(--c1);outline-offset:1px;}
 .modal-close:hover{background:rgba(99,202,255,.16);color:var(--c1);}
 .modal-tag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--c4);background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.18);padding:4px 12px;border-radius:99px;display:inline-block;margin-bottom:16px;}
 .modal-box h3{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px;}
 .modal-box h3 span{background:linear-gradient(110deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 .modal-box>p{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:26px;font-weight:300;}
 .modal-links{display:flex;flex-direction:column;gap:10px;}
-/* email row with copy button */
 .ml-email{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 18px;transition:border-color .25s,background .25s;}
+.ml-email:focus-within{border-color:var(--borderH);}
 .ml-email:hover{border-color:var(--borderH);background:rgba(99,202,255,.04);}
 .ml-ico{font-size:18px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(99,202,255,.07);border-radius:9px;flex-shrink:0;}
 .ml-email small,.ml small{font-family:var(--mono);font-size:9.5px;color:var(--muted2);letter-spacing:.1em;display:block;margin-bottom:2px;}
 .ml-email strong,.ml strong{font-size:13px;color:var(--c1);}
 .copy-btn{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted);background:rgba(99,202,255,.07);border:1px solid var(--border);border-radius:6px;padding:4px 10px;cursor:pointer;transition:background .2s,color .2s,border-color .2s;white-space:nowrap;}
+.copy-btn:focus-visible{outline:2px solid var(--c1);outline-offset:1px;}
 .copy-btn:hover{background:rgba(99,202,255,.16);color:var(--c1);border-color:var(--borderH);}
 .copy-btn.copied{color:#86efac;border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.08);}
-.ml{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 18px;transition:border-color .25s,transform .25s,background .25s;cursor:pointer;}
-.ml:hover{border-color:var(--borderH);transform:translateX(4px);background:rgba(99,202,255,.04);}
+.ml{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 18px;transition:border-color .25s,transform .25s,background .25s;cursor:pointer;text-decoration:none;}
+.ml:focus-visible{outline:2px solid var(--c1);outline-offset:2px;}
+.ml:hover{border-color:var(--borderH);background:rgba(99,202,255,.04);transform:translateX(4px);}
 .ml .arr{margin-left:auto;color:var(--muted2);font-size:14px;transition:color .2s,transform .2s;}
 .ml:hover .arr{color:var(--c1);transform:translateX(3px);}
 
@@ -306,18 +370,19 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:26
   .term-wrap{max-width:100%;}
   .tl,.term-input,.term-prompt{font-size:11px;}
   .stats-row{grid-template-columns:1fr 1fr;}
-  .proj-grid,.ach-grid,.cert-grid,.skills-wrap,.build-grid{grid-template-columns:1fr;}
+  .proj-grid,.goals-grid,.cert-grid,.skills-wrap,.build-grid{grid-template-columns:1fr;}
   .amb-banner{flex-direction:column;}
   .contact-cards{flex-direction:column;align-items:stretch;}
   .cc{min-width:unset;}
   .modal-box{padding:28px 20px;}
   footer{flex-direction:column;text-align:center;}
+  .roadmap-strip{flex-direction:column;align-items:flex-start;}
 }
 
-/* disable heavy hover transforms on touch */
+/* disable heavy transforms on touch */
 @media(hover:none){
   .sk:hover,.pc:hover,.stat:hover,.info-card:hover,
-  .ach:hover,.build-card:hover,.cert:hover,.cc:hover,
+  .goal-card:hover,.build-card:hover,.cert:hover,.cc:hover,
   .ml:hover,.pp:hover,.btn-p:hover,.btn-o:hover,.opp-cta:hover{transform:none !important;}
 }
 </style>
@@ -329,31 +394,33 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:26
 <canvas id="bg-canvas"></canvas>
 
 <!-- NAV -->
-<nav>
-  <div class="logo"><div class="logo-dot"></div>DEV_ISLAM</div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#building">Building</a></li>
-    <li><a href="#certifications">Certs</a></li>
-    <li><a href="#contact">Contact</a></li>
+<nav role="navigation" aria-label="Main navigation">
+  <button class="logo" onclick="window.location.hash='#home'" title="Go to home">
+    <div class="logo-dot"></div>DEV_ISLAM
+  </button>
+  <ul class="nav-links" role="menubar">
+    <li role="none"><a href="#home" role="menuitem">Home</a></li>
+    <li role="none"><a href="#about" role="menuitem">About</a></li>
+    <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
+    <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+    <li role="none"><a href="#goals" role="menuitem">Goals</a></li>
+    <li role="none"><a href="#building" role="menuitem">Building</a></li>
+    <li role="none"><a href="#certifications" role="menuitem">Certs</a></li>
+    <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
   </ul>
   <button class="ham" id="ham" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="mob-menu" id="mobMenu">
-  <a href="#home"           onclick="closeMob()">Home</a>
-  <a href="#about"          onclick="closeMob()">About</a>
-  <a href="#skills"         onclick="closeMob()">Skills</a>
-  <a href="#projects"       onclick="closeMob()">Projects</a>
-  <a href="#achievements"   onclick="closeMob()">Achievements</a>
-  <a href="#building"       onclick="closeMob()">Currently Building</a>
-  <a href="#certifications" onclick="closeMob()">Certifications</a>
-  <a href="#contact"        onclick="closeMob()">Contact</a>
+<div class="mob-menu" id="mobMenu" role="navigation" aria-label="Mobile navigation">
+  <a href="#home" role="menuitem" onclick="closeMob()">Home</a>
+  <a href="#about" role="menuitem" onclick="closeMob()">About</a>
+  <a href="#skills" role="menuitem" onclick="closeMob()">Skills</a>
+  <a href="#projects" role="menuitem" onclick="closeMob()">Projects</a>
+  <a href="#goals" role="menuitem" onclick="closeMob()">Goals</a>
+  <a href="#building" role="menuitem" onclick="closeMob()">Currently Building</a>
+  <a href="#certifications" role="menuitem" onclick="closeMob()">Certifications</a>
+  <a href="#contact" role="menuitem" onclick="closeMob()">Contact</a>
 </div>
 
 <!-- HERO -->
@@ -372,22 +439,22 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:26
   </div>
   <div class="hero-platforms">
     <span>FIND ME ON</span>
-    <a class="pp" href="https://codeforces.com/profile/Dev_islam" target="_blank" rel="noopener noreferrer"><span class="pdot cf-c"></span>Codeforces</a>
-    <a class="pp" href="https://www.hackerrank.com/profile/eslamsalh_me" target="_blank" rel="noopener noreferrer"><span class="pdot hr-c"></span>HackerRank</a>
-    <a class="pp" href="https://github.com/GftRr" target="_blank" rel="noopener noreferrer"><span class="pdot gh-c"></span>GitHub</a>
+    <a class="pp" href="https://codeforces.com/profile/Dev_islam" target="_blank" rel="noopener noreferrer" aria-label="Codeforces profile"><span class="pdot cf-c"></span>Codeforces</a>
+    <a class="pp" href="https://www.hackerrank.com/profile/eslamsalh_me" target="_blank" rel="noopener noreferrer" aria-label="HackerRank profile"><span class="pdot hr-c"></span>HackerRank</a>
+    <a class="pp" href="https://github.com/GftRr" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><span class="pdot gh-c"></span>GitHub</a>
   </div>
   <!-- TERMINAL -->
   <div class="term-wrap">
     <div class="term-win">
       <div class="term-bar">
-        <span class="tb tb-r"></span><span class="tb tb-y"></span><span class="tb tb-g"></span>
+        <span class="tb tb-r" aria-hidden="true"></span><span class="tb tb-y" aria-hidden="true"></span><span class="tb tb-g" aria-hidden="true"></span>
         <span class="term-title">islam@dev — terminal</span>
       </div>
-      <div class="term-body" id="termBody"></div>
+      <div class="term-body" id="termBody" role="log" aria-live="polite" aria-label="Terminal output"></div>
       <div class="term-footer">
         <div class="term-input-row">
           <span class="term-prompt">islam@dev:~$&nbsp;</span>
-          <input class="term-input" id="termInput" placeholder="type a command…" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+          <input class="term-input" id="termInput" placeholder="type a command…" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" aria-label="Terminal command input">
         </div>
         <div class="term-chips">
           <button class="chip" onclick="runCmd('whoami')">whoami</button>
@@ -476,13 +543,41 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:26
   </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
-<section id="achievements" class="section">
-  <div class="sec-head r"><span class="sec-num">04</span><h2 class="sec-title">Achievements</h2><div class="sec-rule"></div></div>
-  <div class="ach-grid">
-    <div class="ach coming r"><div class="ach-ico">🏅</div><h4>Contest Medal</h4><p>Aiming to rank in top national competitive programming contests — actively building the skill set required.</p></div>
-    <div class="ach coming r"><div class="ach-ico">🌍</div><h4>International Recognition</h4><p>Working toward representing Egypt at international olympiad-level programming competitions.</p></div>
-    <div class="ach coming r"><div class="ach-ico">⭐</div><h4>Codeforces Expert</h4><p>Targeting Expert rating — one problem, one contest, one rank at a time on Codeforces.</p></div>
+<!-- GOALS (replaces "Achievements") -->
+<section id="goals" class="section">
+  <div class="sec-head r"><span class="sec-num">04</span><h2 class="sec-title">Goals & Ambitions</h2><div class="sec-rule"></div></div>
+  <p class="goals-intro r">These are the milestones I'm actively working toward — not trophies yet, but targets that drive every hour of practice.</p>
+  <div class="goals-grid">
+    <div class="goal-card r">
+      <div class="goal-tag">// SHORT TERM</div>
+      <div class="goal-ico">⭐</div>
+      <h4>Codeforces Expert</h4>
+      <p>Targeting Expert rating — grinding problems daily, learning new techniques, one rank at a time.</p>
+    </div>
+    <div class="goal-card r">
+      <div class="goal-tag">// SHORT TERM</div>
+      <div class="goal-ico">🏅</div>
+      <h4>National Contest Placement</h4>
+      <p>Aiming to rank competitively in Egyptian national programming contests and olympiad qualifiers.</p>
+    </div>
+    <div class="goal-card r">
+      <div class="goal-tag">// LONG TERM</div>
+      <div class="goal-ico">🌍</div>
+      <h4>International Competition</h4>
+      <p>Working toward representing Egypt at international olympiad-level programming competitions.</p>
+    </div>
+    <div class="goal-card r">
+      <div class="goal-tag">// LONG TERM</div>
+      <div class="goal-ico">🇩🇪</div>
+      <h4>German University</h4>
+      <p>Study computer science or cybersecurity at a top German university and build an international career.</p>
+    </div>
+    <div class="goal-card r">
+      <div class="goal-tag">// LONG TERM</div>
+      <div class="goal-ico">🔴</div>
+      <h4>Red Team Professional</h4>
+      <p>Become a professional penetration tester — thinking like an attacker to build better defenses.</p>
+    </div>
   </div>
   <div class="amb-banner r">
     <div class="amb-ico">🔥</div>
@@ -506,14 +601,68 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:26
   <div class="build-motto r"><strong>Consistency beats talent</strong> — and I'm committed to improving every single day. Not because it's easy, but because it matters.</div>
 </section>
 
-<!-- CERTIFICATIONS -->
+<!-- CERTIFICATIONS & LEARNING ROADMAP -->
 <section id="certifications" class="section">
-  <div class="sec-head r"><span class="sec-num">06</span><h2 class="sec-title">Certifications</h2><div class="sec-rule"></div></div>
+  <div class="sec-head r"><span class="sec-num">06</span><h2 class="sec-title">Certifications & Roadmap</h2><div class="sec-rule"></div></div>
+  <p class="cert-section-intro r">Actively working through a structured learning path. Honest about where I am — and clear about where I'm going.</p>
+
+  <div class="cert-earned-label r">✦ EARNED</div>
   <div class="cert-grid">
-    <div class="cert r"><div class="cert-ico">📜</div><div><div class="cert-issuer">EARNED</div><div class="cert-name">Your Current Certification</div><div class="cert-status">✓ Completed — update with your cert name</div></div></div>
-    <div class="cert locked r"><div class="cert-ico">🎯</div><div><div class="cert-issuer">TARGET · COURSERA</div><div class="cert-name">Machine Learning Specialization</div><div class="cert-status">In progress — building toward this</div></div></div>
-    <div class="cert locked r"><div class="cert-ico">🔐</div><div><div class="cert-issuer">TARGET · GOOGLE</div><div class="cert-name">Cybersecurity Certificate</div><div class="cert-status">Planned — next on the list</div></div></div>
-    <div class="cert locked r"><div class="cert-ico">⚡</div><div><div class="cert-issuer">TARGET · COMPETITIVE</div><div class="cert-name">Codeforces Expert Badge</div><div class="cert-status">The ultimate competitive programming milestone</div></div></div>
+    <div class="cert earned r">
+      <div class="cert-ico">🟢</div>
+      <div>
+        <div class="cert-issuer">HACKERRANK · VERIFIED</div>
+        <div class="cert-name">Python (Basic) Certificate</div>
+        <div class="cert-status">✓ Earned — verified skill badge</div>
+      </div>
+    </div>
+    <div class="cert earned r">
+      <div class="cert-ico">🟢</div>
+      <div>
+        <div class="cert-issuer">HACKERRANK · VERIFIED</div>
+        <div class="cert-name">Problem Solving (Basic)</div>
+        <div class="cert-status">✓ Earned — verified skill badge</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cert-earned-label r" style="margin-top:24px;">⟳ IN PROGRESS &amp; PLANNED</div>
+  <div class="cert-grid">
+    <div class="cert upcoming r">
+      <div class="cert-ico">🎯</div>
+      <div>
+        <div class="cert-issuer">TARGET · COURSERA</div>
+        <div class="cert-name">Machine Learning Specialization</div>
+        <div class="cert-status">In progress — building toward this</div>
+      </div>
+    </div>
+    <div class="cert upcoming r">
+      <div class="cert-ico">🔐</div>
+      <div>
+        <div class="cert-issuer">TARGET · GOOGLE</div>
+        <div class="cert-name">Google Cybersecurity Certificate</div>
+        <div class="cert-status">Planned — next on the list</div>
+      </div>
+    </div>
+    <div class="cert upcoming r">
+      <div class="cert-ico">⚡</div>
+      <div>
+        <div class="cert-issuer">TARGET · CODEFORCES</div>
+        <div class="cert-name">Expert Rating Badge</div>
+        <div class="cert-status">The ultimate competitive programming milestone</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="roadmap-strip r">
+    <div class="road-dots">
+      <span class="rd done" title="Earned"></span>
+      <span class="rd done" title="Earned"></span>
+      <span class="rd active" title="In progress"></span>
+      <span class="rd next" title="Planned"></span>
+      <span class="rd next" title="Planned"></span>
+    </div>
+    <span><strong>2 earned</strong> · 1 in progress · 2 planned — the journey is intentional.</span>
   </div>
 </section>
 
@@ -523,18 +672,17 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:26
   <div class="contact-wrap">
     <p class="contact-lead r">Want to <strong>collaborate</strong>, talk algorithms, or just say hi? I'm always happy to connect with people who love to build things.</p>
     <div class="contact-cards r">
-      <!-- Email: copies to clipboard on click, works on all devices -->
-      <button class="cc" onclick="copyEmail(this)" title="Click to copy email address">
+      <button class="cc" onclick="copyEmail(this)" title="Click to copy email address" aria-label="Copy email address">
         <span class="cc-icon">✉️</span>
         <div><small>EMAIL — CLICK TO COPY</small><strong id="emailLabel">eslamsalh.me@gmail.com</strong></div>
       </button>
-      <a class="cc" href="https://github.com/GftRr" target="_blank" rel="noopener noreferrer">
+      <a class="cc" href="https://github.com/GftRr" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">
         <span class="cc-icon">🐙</span><div><small>GITHUB</small><strong>@GftRr</strong></div>
       </a>
-      <a class="cc" href="https://codeforces.com/profile/Dev_islam" target="_blank" rel="noopener noreferrer">
+      <a class="cc" href="https://codeforces.com/profile/Dev_islam" target="_blank" rel="noopener noreferrer" aria-label="Visit Codeforces profile">
         <span class="cc-icon">🏆</span><div><small>CODEFORCES</small><strong>Dev_islam</strong></div>
       </a>
-      <a class="cc" href="https://www.hackerrank.com/profile/eslamsalh_me" target="_blank" rel="noopener noreferrer">
+      <a class="cc" href="https://www.hackerrank.com/profile/eslamsalh_me" target="_blank" rel="noopener noreferrer" aria-label="Visit HackerRank profile">
         <span class="cc-icon">💻</span><div><small>HACKERRANK</small><strong>eslamsalh_me</strong></div>
       </a>
     </div>
@@ -542,7 +690,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:26
 </section>
 
 <!-- CONTACT MODAL -->
-<div class="modal-overlay" id="contactModal">
+<div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-label="Contact Islam Hany">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
     <div class="modal-tag">// LET'S CONNECT</div>
@@ -554,13 +702,13 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:26
         <div><small>EMAIL</small><strong>eslamsalh.me@gmail.com</strong></div>
         <button class="copy-btn" id="modalCopyBtn" onclick="copyModalEmail()">Copy</button>
       </div>
-      <a class="ml" href="https://github.com/GftRr" target="_blank" rel="noopener noreferrer">
+      <a class="ml" href="https://github.com/GftRr" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub">
         <div class="ml-ico">🐙</div><div><small>GITHUB</small><strong>@GftRr</strong></div><span class="arr">→</span>
       </a>
-      <a class="ml" href="https://codeforces.com/profile/Dev_islam" target="_blank" rel="noopener noreferrer">
+      <a class="ml" href="https://codeforces.com/profile/Dev_islam" target="_blank" rel="noopener noreferrer" aria-label="Visit Codeforces">
         <div class="ml-ico">🏆</div><div><small>CODEFORCES</small><strong>Dev_islam</strong></div><span class="arr">→</span>
       </a>
-      <a class="ml" href="https://www.hackerrank.com/profile/eslamsalh_me" target="_blank" rel="noopener noreferrer">
+      <a class="ml" href="https://www.hackerrank.com/profile/eslamsalh_me" target="_blank" rel="noopener noreferrer" aria-label="Visit HackerRank">
         <div class="ml-ico">💻</div><div><small>HACKERRANK</small><strong>eslamsalh_me</strong></div><span class="arr">→</span>
       </a>
     </div>
@@ -586,13 +734,19 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:26
 
 <!-- FOOTER -->
 <footer>
-  <span class="foot-l">© 2026 <strong>Islam Hany</strong> · All rights reserved</span>
+  <span class="foot-l">© <span id="footYear"></span> <strong>Islam Hany</strong> · All rights reserved</span>
   <span class="foot-r">Built with passion · DEV_ISLAM</span>
 </footer>
 
 <script>
+/* ── REDUCED MOTION CHECK ── */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ── YEAR ── */
+document.getElementById('footYear').textContent = new Date().getFullYear();
+
 /* ── CURSOR ── */
-if(window.matchMedia('(pointer:fine)').matches){
+if(window.matchMedia('(pointer:fine)').matches && !prefersReducedMotion){
   const c=document.getElementById('cursor'),r=document.getElementById('cursor-ring');
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});
@@ -605,17 +759,29 @@ if(window.matchMedia('(pointer:fine)').matches){
   (function loop(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(loop);})();
 }
 
-/* ── CANVAS ── */
+/* ── CANVAS — FPS CAPPED & DEBOUNCED ── */
 (function(){
   const cv=document.getElementById('bg-canvas'),cx=cv.getContext('2d');
-  let W,H,pts=[];
+  let W,H,pts=[],lastFrame=0,resizeTimeout;
+  const FPS_CAP=30,frameDuration=1000/FPS_CAP;
+
   function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
-  resize();window.addEventListener('resize',resize,{passive:true});
+  resize();
+
+  window.addEventListener('resize',()=>{
+    clearTimeout(resizeTimeout);
+    resizeTimeout=setTimeout(resize,150);
+  },{passive:true});
+
   const N=window.innerWidth<600?45:80;
   function Pt(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.22;this.vy=(Math.random()-.5)*.22;this.r=Math.random()*1.1+.3;this.a=Math.random()*.45+.1;}
   for(let i=0;i<N;i++)pts.push(new Pt());
+
   let f=0;
-  (function draw(){
+  (function draw(now){
+    if(now-lastFrame<frameDuration){requestAnimationFrame(draw);return;}
+    lastFrame=now;
+
     cx.clearRect(0,0,W,H);
     pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);cx.fillStyle='rgba(99,202,255,'+p.a+')';cx.fill();});
     if(f%2===0){
@@ -625,12 +791,12 @@ if(window.matchMedia('(pointer:fine)').matches){
       }
     }
     f++;requestAnimationFrame(draw);
-  })();
+  })(0);
 })();
 
 /* ── TYPED TEXT ── */
 (function(){
-  const roles=['Competitive Programmer (C++)','Machine Learning Enthusiast','Problem Solver','High School Developer','Future Tech Builder'];
+  const roles=['Competitive Programmer (C++)','Machine Learning Enthusiast','Problem Solver','High School Developer','Future Cybersecurity Engineer'];
   let ri=0,ci=0,del=false,pause=0;
   const el=document.getElementById('typed');
   function tick(){
@@ -673,7 +839,7 @@ window.addEventListener('scroll',()=>{
     projects:[{t:'hi',s:'islam@dev:~$ projects'},{t:'out',s:''},{t:'yellow',s:'  [1] Projects Repository   → github.com/GftRr/MyProjects'},{t:'out',s:'      14+ projects · algorithms · ML · C++'},{t:'yellow',s:'  [2] Competitive Solutions  → codeforces.com/profile/Dev_islam'},{t:'out',s:'      C++ · DP · graphs · segment trees'},{t:'yellow',s:'  [3] ML Experiments         → github.com/GftRr/MyProjects'},{t:'out',s:'      Python · classification · data pipelines'},{t:'yellow',s:'  [4] Security Explorations  → github.com/GftRr'},{t:'out',s:'      CTF · cybersecurity fundamentals'},{t:'blank'}],
     contact:[{t:'hi',s:'islam@dev:~$ contact'},{t:'out',s:''},{t:'hi',s:'  ✉  Email      eslamsalh.me@gmail.com'},{t:'out',s:'  🐙 GitHub     github.com/GftRr'},{t:'out',s:'  🏆 Codeforces codeforces.com/profile/Dev_islam'},{t:'out',s:'  💻 HackerRank hackerrank.com/profile/eslamsalh_me'},{t:'blank'},{t:'green',s:'  STATUS: Open to collaborations & opportunities ✓'},{t:'blank'}],
     socials:[{t:'hi',s:'islam@dev:~$ socials'},{t:'out',s:''},{t:'hi',s:'  Platform      Handle'},{t:'out',s:'  ──────────────────────────────────────'},{t:'yellow',s:'  GitHub        @GftRr'},{t:'yellow',s:'  Codeforces    Dev_islam'},{t:'yellow',s:'  HackerRank    eslamsalh_me'},{t:'blank'}],
-    goals:[{t:'hi',s:'islam@dev:~$ goals'},{t:'out',s:''},{t:'hi',s:'  Short Term'},{t:'green',s:'  [ ] Codeforces Expert rating'},{t:'green',s:'  [ ] Complete ML Specialization'},{t:'green',s:'  [ ] Build a real-world security tool'},{t:'blank'},{t:'hi',s:'  Long Term'},{t:'yellow',s:'  [ ] National olympiad competition'},{t:'yellow',s:'  [ ] Study at a German university'},{t:'yellow',s:'  [ ] International cybersecurity career'},{t:'blank'},{t:'hi',s:'  Core Belief'},{t:'out',s:'  "Consistency beats talent. Every. Single. Day."'},{t:'blank'}],
+    goals:[{t:'hi',s:'islam@dev:~$ goals'},{t:'out',s:''},{t:'hi',s:'  Short Term'},{t:'green',s:'  [ ] Codeforces Expert rating'},{t:'green',s:'  [ ] National contest placement'},{t:'green',s:'  [ ] Google Cybersecurity Certificate'},{t:'blank'},{t:'hi',s:'  Long Term'},{t:'yellow',s:'  [ ] International olympiad competition'},{t:'yellow',s:'  [ ] Study at a German university'},{t:'yellow',s:'  [ ] Red Team professional career'},{t:'blank'},{t:'hi',s:'  Core Belief'},{t:'out',s:'  "Consistency beats talent. Every. Single. Day."'},{t:'blank'}],
     help:[{t:'hi',s:'islam@dev:~$ help'},{t:'out',s:''},{t:'hi',s:'  Available commands:'},{t:'out',s:''},{t:'green',s:'  whoami    →  who is Islam Hany?'},{t:'green',s:'  skills    →  technical skills'},{t:'green',s:'  projects  →  all projects'},{t:'green',s:'  contact   →  get in touch'},{t:'green',s:'  socials   →  platform links'},{t:'green',s:'  goals     →  goals & beliefs'},{t:'green',s:'  clear     →  clear terminal'},{t:'blank'}],
   };
   function addLine(cls,text){const d=document.createElement('div');d.className='tl '+(cls==='blank'?'blank':cls||'out');d.textContent=text||'';body.appendChild(d);body.scrollTop=body.scrollHeight;}
@@ -690,19 +856,24 @@ function closeModal(){document.getElementById('contactModal').classList.remove('
 document.getElementById('contactModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-/* ── EMAIL COPY (works on desktop, mobile, all browsers) ── */
+/* ── EMAIL COPY — IMPROVED ERROR HANDLING ── */
 const EMAIL='eslamsalh.me@gmail.com';
-function doCopy(successCb,fallbackCb){
+function doCopy(successCb,errorCb){
   if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(EMAIL).then(successCb).catch(()=>{legacyCopy(fallbackCb);});
+    navigator.clipboard.writeText(EMAIL).then(successCb).catch(()=>{legacyCopy(successCb);});
   }else{legacyCopy(successCb);}
 }
 function legacyCopy(cb){
-  const ta=document.createElement('textarea');
-  ta.value=EMAIL;ta.style.cssText='position:fixed;top:0;left:0;opacity:0;';
-  document.body.appendChild(ta);ta.focus();ta.select();
-  try{document.execCommand('copy');}catch(e){}
-  document.body.removeChild(ta);cb&&cb();
+  try{
+    const ta=document.createElement('textarea');
+    ta.value=EMAIL;ta.style.cssText='position:fixed;top:0;left:0;opacity:0;';
+    document.body.appendChild(ta);ta.focus();ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    cb&&cb();
+  }catch(e){
+    console.error('Copy failed:',e);
+  }
 }
 function copyEmail(btn){
   const label=document.getElementById('emailLabel');
